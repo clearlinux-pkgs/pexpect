@@ -4,7 +4,7 @@
 #
 Name     : pexpect
 Version  : 4.2.1
-Release  : 20
+Release  : 21
 URL      : http://pypi.debian.net/pexpect/pexpect-4.2.1.tar.gz
 Source0  : http://pypi.debian.net/pexpect/pexpect-4.2.1.tar.gz
 Summary  : Pexpect allows easy control of interactive console applications.
