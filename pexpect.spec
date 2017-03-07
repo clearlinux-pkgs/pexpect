@@ -4,15 +4,17 @@
 #
 Name     : pexpect
 Version  : 4.2.1
-Release  : 24
+Release  : 25
 URL      : http://pypi.debian.net/pexpect/pexpect-4.2.1.tar.gz
 Source0  : http://pypi.debian.net/pexpect/pexpect-4.2.1.tar.gz
 Summary  : Pexpect allows easy control of interactive console applications.
 Group    : Development/Tools
 License  : ISC
 Requires: pexpect-python
+Requires: ptyprocess
 BuildRequires : pbr
 BuildRequires : pip
+BuildRequires : ptyprocess
 BuildRequires : python-dev
 BuildRequires : python3-dev
 BuildRequires : setuptools
@@ -40,12 +42,12 @@ python components for the pexpect package.
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1484561931
+export SOURCE_DATE_EPOCH=1488922471
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1484561931
+export SOURCE_DATE_EPOCH=1488922471
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
