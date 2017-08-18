@@ -4,7 +4,7 @@
 #
 Name     : pexpect
 Version  : 4.2.1
-Release  : 26
+Release  : 27
 URL      : http://pypi.debian.net/pexpect/pexpect-4.2.1.tar.gz
 Source0  : http://pypi.debian.net/pexpect/pexpect-4.2.1.tar.gz
 Summary  : Pexpect allows easy control of interactive console applications.
@@ -20,14 +20,21 @@ BuildRequires : python3-dev
 BuildRequires : setuptools
 
 %description
-This directory contains scripts that give examples of using Pexpect.
-hive.py
-This script creates SSH connections to a list of hosts that
-you provide. Then you are given a command line prompt. Each
-shell command that you enter is sent to all the hosts. The
-response from each host is collected and printed. For example,
-you could connect to a dozen different machines and reboot
-them all at once.
+Pexpect is a pure Python module for spawning child applications; controlling
+        them; and responding to expected patterns in their output. Pexpect works like
+        Don Libes' Expect. Pexpect allows your script to spawn a child application and
+        control it as if a human were typing commands.
+        
+        Pexpect can be used for automating interactive applications such as ssh, ftp,
+        passwd, telnet, etc. It can be used to a automate setup scripts for duplicating
+        software package installations on different servers. It can be used for
+        automated software testing. Pexpect is in the spirit of Don Libes' Expect, but
+        Pexpect is pure Python.
+        
+        The main features of Pexpect require the pty module in the Python standard
+        library, which is only available on Unix-like systems. Some featuresâwaiting
+        for patterns from file descriptors or subprocessesâare also available on
+        Windows.
 
 %package python
 Summary: python components for the pexpect package.
@@ -41,20 +48,27 @@ python components for the pexpect package.
 %setup -q -n pexpect-4.2.1
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1488922471
+export SOURCE_DATE_EPOCH=1503072090
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1488922471
+export SOURCE_DATE_EPOCH=1503072090
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+echo ----[ mark ]----
+cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
+echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
 
 %files python
 %defattr(-,root,root,-)
-/usr/lib/python*/*
+/usr/lib/python2*/*
+/usr/lib/python3*/*
