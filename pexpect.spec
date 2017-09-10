@@ -4,12 +4,13 @@
 #
 Name     : pexpect
 Version  : 4.2.1
-Release  : 27
+Release  : 28
 URL      : http://pypi.debian.net/pexpect/pexpect-4.2.1.tar.gz
 Source0  : http://pypi.debian.net/pexpect/pexpect-4.2.1.tar.gz
 Summary  : Pexpect allows easy control of interactive console applications.
 Group    : Development/Tools
 License  : ISC
+Requires: pexpect-legacypython
 Requires: pexpect-python
 Requires: ptyprocess
 BuildRequires : pbr
@@ -36,9 +37,18 @@ Pexpect is a pure Python module for spawning child applications; controlling
         for patterns from file descriptors or subprocessesâare also available on
         Windows.
 
+%package legacypython
+Summary: legacypython components for the pexpect package.
+Group: Default
+
+%description legacypython
+legacypython components for the pexpect package.
+
+
 %package python
 Summary: python components for the pexpect package.
 Group: Default
+Requires: pexpect-legacypython
 
 %description python
 python components for the pexpect package.
@@ -52,12 +62,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1503072090
+export SOURCE_DATE_EPOCH=1505055558
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1503072090
+export SOURCE_DATE_EPOCH=1505055558
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
@@ -68,7 +78,10 @@ echo ----[ mark ]----
 %files
 %defattr(-,root,root,-)
 
-%files python
+%files legacypython
 %defattr(-,root,root,-)
 /usr/lib/python2*/*
+
+%files python
+%defattr(-,root,root,-)
 /usr/lib/python3*/*
