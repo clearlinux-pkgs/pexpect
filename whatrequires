@@ -145,6 +145,7 @@ colord
 colord-gtk
 comedilib
 compat-gegl
+compat-gtksourceview-soname3
 compat-libwebp-soname6
 compat-llvm-soname4
 compat-llvm-soname5
@@ -180,10 +181,12 @@ dnf-plugins-core
 dnspython
 docker
 docker-py
+dockerpy-creds
 docutils
 dogtail
 double-conversion
 dstat
+dtc
 e2fsprogs
 ecdsa
 edk2
@@ -371,6 +374,7 @@ libcanberra
 libchamplain
 libcroco
 libcryptui
+libdazzle
 libdnf
 libdrm
 libepoxy
@@ -423,6 +427,7 @@ linux-hyperv-lts
 linux-hyperv-mini
 linux-kvm
 linux-lts
+linux-oracle
 linux-pk414
 linux-tools
 llvm
@@ -599,6 +604,7 @@ rsa
 rustc
 s3transfer
 samba
+sane-backends
 satyr
 scikit-build
 scikit-image
@@ -615,6 +621,7 @@ setserial
 setuptools
 setuptools_scm
 shim
+simple-scan
 simplegeneric
 simplejson
 sip
@@ -671,6 +678,7 @@ typing
 tzlocal
 udisks2
 uhttpmock
+unbundle
 unicode-xid
 unittest2
 upower
@@ -679,6 +687,7 @@ urlgrabber
 urllib3
 util-linux
 uwsgi
+vala
 vcversioner
 vinagre
 virt-manager
