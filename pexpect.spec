@@ -4,7 +4,7 @@
 #
 Name     : pexpect
 Version  : 4.5.0
-Release  : 39
+Release  : 40
 URL      : https://pypi.python.org/packages/09/0e/75f0c093654988b8f17416afb80f7621bcf7d36bbd6afb4f823acdb4bcdc/pexpect-4.5.0.tar.gz
 Source0  : https://pypi.python.org/packages/09/0e/75f0c093654988b8f17416afb80f7621bcf7d36bbd6afb4f823acdb4bcdc/pexpect-4.5.0.tar.gz
 Summary  : Pexpect allows easy control of interactive console applications.
