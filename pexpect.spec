@@ -16,7 +16,7 @@ Requires: ptyprocess
 BuildRequires : pbr
 BuildRequires : pip
 BuildRequires : ptyprocess
-BuildRequires : python-dev
+
 BuildRequires : python3-dev
 BuildRequires : setuptools
 
