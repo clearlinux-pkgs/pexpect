@@ -4,21 +4,24 @@
 #
 Name     : pexpect
 Version  : 4.5.0
-Release  : 45
+Release  : 46
 URL      : https://pypi.python.org/packages/09/0e/75f0c093654988b8f17416afb80f7621bcf7d36bbd6afb4f823acdb4bcdc/pexpect-4.5.0.tar.gz
 Source0  : https://pypi.python.org/packages/09/0e/75f0c093654988b8f17416afb80f7621bcf7d36bbd6afb4f823acdb4bcdc/pexpect-4.5.0.tar.gz
 Summary  : Pexpect allows easy control of interactive console applications.
 Group    : Development/Tools
 License  : ISC
 Requires: pexpect-python3
+Requires: pexpect-license
 Requires: pexpect-python
 Requires: ptyprocess
 BuildRequires : pbr
 BuildRequires : pip
 BuildRequires : ptyprocess
-
+BuildRequires : python-core
+BuildRequires : python3-core
 BuildRequires : python3-dev
 BuildRequires : setuptools
+BuildRequires : setuptools-legacypython
 
 %description
 Pexpect is a pure Python module for spawning child applications; controlling
@@ -44,6 +47,14 @@ Requires: python-core
 
 %description legacypython
 legacypython components for the pexpect package.
+
+
+%package license
+Summary: license components for the pexpect package.
+Group: Default
+
+%description license
+license components for the pexpect package.
 
 
 %package python
@@ -72,13 +83,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1523717416
+export SOURCE_DATE_EPOCH=1530375675
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1523717416
+export SOURCE_DATE_EPOCH=1530375675
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/pexpect
+cp LICENSE %{buildroot}/usr/share/doc/pexpect/LICENSE
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 echo ----[ mark ]----
@@ -91,6 +104,10 @@ echo ----[ mark ]----
 %files legacypython
 %defattr(-,root,root,-)
 /usr/lib/python2*/*
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/pexpect/LICENSE
 
 %files python
 %defattr(-,root,root,-)
