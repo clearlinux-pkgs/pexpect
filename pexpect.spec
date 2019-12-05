@@ -4,7 +4,7 @@
 #
 Name     : pexpect
 Version  : 4.7.0
-Release  : 58
+Release  : 59
 URL      : https://files.pythonhosted.org/packages/1c/b1/362a0d4235496cb42c33d1d8732b5e2c607b0129ad5fdd76f5a583b9fcb3/pexpect-4.7.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/1c/b1/362a0d4235496cb42c33d1d8732b5e2c607b0129ad5fdd76f5a583b9fcb3/pexpect-4.7.0.tar.gz
 Summary  : Pexpect allows easy control of interactive console applications.
