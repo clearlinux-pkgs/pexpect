@@ -1,7 +1,8 @@
 # This file contains recursive sources that require this package
+QGIS
 argcomplete
+bash-completion
 bash_kernel
-ipdb
 ipykernel
 ipython
 pytest
