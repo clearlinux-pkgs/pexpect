@@ -4,7 +4,7 @@
 #
 Name     : pexpect
 Version  : 4.8.0
-Release  : 61
+Release  : 62
 URL      : https://files.pythonhosted.org/packages/e5/9b/ff402e0e930e70467a7178abb7c128709a30dfb22d8777c043e501bc1b10/pexpect-4.8.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/e5/9b/ff402e0e930e70467a7178abb7c128709a30dfb22d8777c043e501bc1b10/pexpect-4.8.0.tar.gz
 Summary  : Pexpect allows easy control of interactive console applications.
@@ -48,6 +48,7 @@ python components for the pexpect package.
 Summary: python3 components for the pexpect package.
 Group: Default
 Requires: python3-core
+Provides: pypi(pexpect)
 
 %description python3
 python3 components for the pexpect package.
@@ -62,7 +63,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1579655725
+export SOURCE_DATE_EPOCH=1583201937
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
