@@ -5,4 +5,5 @@ bash_kernel
 ipykernel
 ipython
 pytest
+pytest-timeout
 spyder-ide

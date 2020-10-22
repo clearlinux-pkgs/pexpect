@@ -4,7 +4,7 @@
 #
 Name     : pexpect
 Version  : 4.8.0
-Release  : 64
+Release  : 65
 URL      : https://files.pythonhosted.org/packages/e5/9b/ff402e0e930e70467a7178abb7c128709a30dfb22d8777c043e501bc1b10/pexpect-4.8.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/e5/9b/ff402e0e930e70467a7178abb7c128709a30dfb22d8777c043e501bc1b10/pexpect-4.8.0.tar.gz
 Summary  : Pexpect allows easy control of interactive console applications.
@@ -18,14 +18,21 @@ BuildRequires : buildreq-distutils3
 BuildRequires : ptyprocess
 
 %description
-This directory contains scripts that give examples of using Pexpect.
-hive.py
-This script creates SSH connections to a list of hosts that
-you provide. Then you are given a command line prompt. Each
-shell command that you enter is sent to all the hosts. The
-response from each host is collected and printed. For example,
-you could connect to a dozen different machines and reboot
-them all at once.
+Pexpect is a pure Python module for spawning child applications; controlling
+        them; and responding to expected patterns in their output. Pexpect works like
+        Don Libes' Expect. Pexpect allows your script to spawn a child application and
+        control it as if a human were typing commands.
+        
+        Pexpect can be used for automating interactive applications such as ssh, ftp,
+        passwd, telnet, etc. It can be used to a automate setup scripts for duplicating
+        software package installations on different servers. It can be used for
+        automated software testing. Pexpect is in the spirit of Don Libes' Expect, but
+        Pexpect is pure Python.
+        
+        The main features of Pexpect require the pty module in the Python standard
+        library, which is only available on Unix-like systems. Some features—waiting
+        for patterns from file descriptors or subprocesses—are also available on
+        Windows.
 
 %package license
 Summary: license components for the pexpect package.
@@ -49,6 +56,7 @@ Summary: python3 components for the pexpect package.
 Group: Default
 Requires: python3-core
 Provides: pypi(pexpect)
+Requires: pypi(ptyprocess)
 
 %description python3
 python3 components for the pexpect package.
@@ -63,12 +71,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583201937
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1603398355
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
